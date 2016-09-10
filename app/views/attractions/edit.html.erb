@@ -1,0 +1,27 @@
+<h1>Editing Attraction</h1>
+
+<%= form_for(@attraction) do |f| %>
+  <% if @attraction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attraction.errors.count, "error") %> prohibited this attraction from being saved:</h2>
+
+      <ul>
+      <% @attraction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :name %>
+  <%= f.text_field :min_height %>
+  <%= f.text_field :happiness_rating %>
+  <%= f.text_field :nausea_rating %>
+  <%= f.text_field :tickets %>
+  <div class="actions">
+    <%= f.submit "Update Attraction" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @attraction %> |
+<%= link_to 'Back', attractions_path %>
